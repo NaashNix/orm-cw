@@ -40,7 +40,7 @@ public class Dashboard {
 
 
     public void navigateToAddStudents(MouseEvent mouseEvent) throws IOException {
-        URL resource = getClass().getResource("../view/AddStud  entForm.fxml");
+        URL resource = getClass().getResource("../view/AddStudentForm.fxml");
         Parent load = FXMLLoader.load(resource);
         Stage window = (Stage) dashboardContext.getScene().getWindow();
         window.setScene(new Scene(load));

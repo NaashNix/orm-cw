@@ -12,8 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="596.0" prefWidth="817.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddStudentFormController">
+<AnchorPane fx:id="addStudentFormContext" prefHeight="596.0" prefWidth="817.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddStudentFormController">
    <children>
       <ImageView fitHeight="44.0" fitWidth="200.0" layoutX="14.0" layoutY="13.0">
          <image>
@@ -69,7 +68,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="584.0" layoutY="486.0" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #7f8c8d;" text="Cancel" textFill="WHITE">
+      <JFXButton layoutX="584.0" layoutY="486.0" onMouseClicked="#navigateToDashboard" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #7f8c8d;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

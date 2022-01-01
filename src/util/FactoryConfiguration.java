@@ -1,5 +1,7 @@
 package util;
 
+import entity.Programs;
+import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,6 +21,8 @@ public class FactoryConfiguration {
         }
         sessionFactory = new Configuration().mergeProperties(properties)
                 //Add Annotated Classes here.
+                .addAnnotatedClass(Programs.class)
+                .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
     }
 

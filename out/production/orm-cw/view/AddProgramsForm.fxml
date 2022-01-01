@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -10,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="addProgramFormContext" prefHeight="569.0" prefWidth="817.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddProgramsFormController">
     <ImageView fitHeight="61.0" fitWidth="277.0" layoutX="17.0" layoutY="13.0">
@@ -30,7 +32,7 @@
             <Font size="15.0" />
         </font>
     </Label>
-    <TextField fx:id="txtPCode" layoutX="316.0" layoutY="196.0" prefHeight="24.0" prefWidth="325.0" />
+    <TextField fx:id="txtPCode" layoutX="316.0" layoutY="196.0" onKeyReleased="#programCodeValidator" prefHeight="24.0" prefWidth="325.0" />
     <Label alignment="CENTER_RIGHT" layoutX="178.0" layoutY="198.0" prefHeight="19.0" prefWidth="122.0" text="Program Code" textAlignment="RIGHT">
         <font>
             <Font size="15.0" />
@@ -64,5 +66,15 @@
             <Font size="17.0" />
         </font>
     </JFXButton>
+   <Group fx:id="codeUsedGrp" layoutX="646.0" layoutY="196.0" visible="false">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e63946" height="24.0" stroke="#540b0e" strokeType="INSIDE" width="61.0" />
+         <Text fill="WHITE" layoutX="10.0" layoutY="17.0048828125" strokeType="OUTSIDE" strokeWidth="0.0" text="USED">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Text>
+      </children>
+   </Group>
 
 </AnchorPane>

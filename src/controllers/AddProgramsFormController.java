@@ -1,15 +1,22 @@
 package controllers;
 
+import bo.BOFactory;
+import bo.custom.ProgramBO;
+import entity.Programs;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 
 public class AddProgramsFormController {
@@ -19,6 +26,8 @@ public class AddProgramsFormController {
     public ComboBox<String> cmbMorY;
     public TextField txtPFee;
     public TextField txtPName;
+    public Group codeUsedGrp;
+    private final ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
 
 
     public void initialize(){
@@ -37,6 +46,20 @@ public class AddProgramsFormController {
     }
 
     public void proceedButtonClicked(MouseEvent mouseEvent) {
-        
+        String programCode = txtPCode.getText();
+        String pName = txtPName.getText();
+        String durationType = String.valueOf(cmbMorY.getSelectionModel());
+        int duration = Integer.parseInt(txtDuration.getText());
+        BigDecimal pFee = BigDecimal.valueOf(Long.parseLong(txtPFee.getText()));
+        Programs programs = new Programs(programCode,pName,duration,durationType,pFee);
+        boolean save = programBO.save(programs);
+        System.out.println(save);
+    }
+
+
+    public void programCodeValidator(KeyEvent keyEvent) {
+        /*if (programBO.checkAvailability(txtPCode.getText())){
+            codeUsedGrp.setVisible(true);
+        }*/
     }
 }

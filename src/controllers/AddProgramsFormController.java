@@ -3,6 +3,8 @@ package controllers;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -12,14 +14,19 @@ import java.net.URL;
 
 public class AddProgramsFormController {
     public AnchorPane addProgramFormContext;
+    public TextField txtPCode;
+    public TextField txtDuration;
+    public ComboBox<String> cmbMorY;
+    public TextField txtPFee;
+    public TextField txtPName;
 
-<<<<<<< HEAD
+
     public void initialize(){
+        cmbMorY.getItems().setAll("Months","Years");
+        cmbMorY.getSelectionModel().clearAndSelect(0);
 
     }
 
-=======
->>>>>>> b95a5887ce743d8473be1e362ea764364f8b21b3
     public void navigateToDashboard(MouseEvent mouseEvent) throws IOException {
         URL resource = getClass().getResource("../view/Dashboard.fxml");
         Parent load = FXMLLoader.load(resource);
@@ -28,9 +35,8 @@ public class AddProgramsFormController {
         window.show();
         window.centerOnScreen();
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> b95a5887ce743d8473be1e362ea764364f8b21b3
+    public void proceedButtonClicked(MouseEvent mouseEvent) {
+        
+    }
 }

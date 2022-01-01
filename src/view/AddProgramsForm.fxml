@@ -24,13 +24,13 @@
     </Label>
     <Separator layoutX="598.0" layoutY="47.0" prefHeight="20.0" prefWidth="200.0" />
     <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#1f93ff00" height="224.0" layoutX="133.0" layoutY="123.0" stroke="#00000054" strokeType="INSIDE" strokeWidth="2.0" width="582.0" />
-    <TextField layoutX="316.0" layoutY="146.0" prefHeight="24.0" prefWidth="325.0" />
+    <TextField fx:id="txtPName" layoutX="316.0" layoutY="146.0" prefHeight="24.0" prefWidth="325.0" />
     <Label layoutX="187.0" layoutY="148.0" text="Program Name">
         <font>
             <Font size="15.0" />
         </font>
     </Label>
-    <TextField layoutX="316.0" layoutY="196.0" prefHeight="24.0" prefWidth="325.0" />
+    <TextField fx:id="txtPCode" layoutX="316.0" layoutY="196.0" prefHeight="24.0" prefWidth="325.0" />
     <Label alignment="CENTER_RIGHT" layoutX="178.0" layoutY="198.0" prefHeight="19.0" prefWidth="122.0" text="Program Code" textAlignment="RIGHT">
         <font>
             <Font size="15.0" />
@@ -41,20 +41,20 @@
             <Font size="15.0" />
         </font>
     </Label>
-   <TextField layoutX="316.0" layoutY="246.0" prefHeight="24.0" prefWidth="178.0" />
-   <ComboBox layoutX="506.0" layoutY="246.0" prefHeight="24.0" prefWidth="138.0" />
+   <TextField fx:id="txtDuration" layoutX="316.0" layoutY="246.0" prefHeight="24.0" prefWidth="178.0" />
+   <ComboBox fx:id="cmbMorY" layoutX="506.0" layoutY="246.0" prefHeight="24.0" prefWidth="138.0" />
    <Label alignment="CENTER_RIGHT" layoutX="163.0" layoutY="298.0" prefHeight="19.0" prefWidth="138.0" text="Program Fee" textAlignment="RIGHT">
       <font>
          <Font size="15.0" />
       </font>
    </Label>
-   <TextField layoutX="316.0" layoutY="296.0" prefHeight="24.0" prefWidth="178.0" />
+   <TextField fx:id="txtPFee" layoutX="316.0" layoutY="296.0" prefHeight="24.0" prefWidth="178.0" />
    <Label layoutX="503.0" layoutY="298.0" prefHeight="19.0" prefWidth="138.0" text="(LKR Rs.)" textAlignment="RIGHT">
       <font>
          <Font size="15.0" />
       </font>
    </Label>
-    <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="376.0" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #2980b9;" text="PROCEED" textFill="WHITE">
+    <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="376.0" onMouseClicked="#proceedButtonClicked" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #2980b9;" text="PROCEED" textFill="WHITE">
         <font>
             <Font name="System Bold" size="16.0" />
         </font>

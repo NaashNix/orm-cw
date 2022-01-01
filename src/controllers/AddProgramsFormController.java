@@ -13,10 +13,13 @@ import java.net.URL;
 public class AddProgramsFormController {
     public AnchorPane addProgramFormContext;
 
+<<<<<<< HEAD
     public void initialize(){
 
     }
 
+=======
+>>>>>>> b95a5887ce743d8473be1e362ea764364f8b21b3
     public void navigateToDashboard(MouseEvent mouseEvent) throws IOException {
         URL resource = getClass().getResource("../view/Dashboard.fxml");
         Parent load = FXMLLoader.load(resource);
@@ -25,6 +28,9 @@ public class AddProgramsFormController {
         window.show();
         window.centerOnScreen();
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b95a5887ce743d8473be1e362ea764364f8b21b3
 }

@@ -51,7 +51,7 @@ public class AddProgramsFormController {
         String durationType = String.valueOf(cmbMorY.getSelectionModel());
         int duration = Integer.parseInt(txtDuration.getText());
         BigDecimal pFee = BigDecimal.valueOf(Long.parseLong(txtPFee.getText()));
-        Programs programs = new Programs(programCode,pName,duration,durationType,pFee);
+        Programs programs = new Programs(programCode,pName,duration,durationType,pFee,null);
         boolean save = programBO.save(programs);
         System.out.println(save);
     }

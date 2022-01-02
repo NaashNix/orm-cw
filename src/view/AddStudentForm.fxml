@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -26,13 +27,13 @@
       </Label>
       <Separator layoutX="598.0" layoutY="47.0" prefHeight="20.0" prefWidth="200.0" />
       <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#1f93ff00" height="328.0" layoutX="133.0" layoutY="123.0" stroke="#00000054" strokeType="INSIDE" strokeWidth="2.0" width="582.0" />
-      <TextField layoutX="316.0" layoutY="146.0" prefHeight="24.0" prefWidth="325.0" />
+      <TextField fx:id="txtName" layoutX="316.0" layoutY="146.0" prefHeight="24.0" prefWidth="325.0" />
       <Label layoutX="217.0" layoutY="148.0" text="Full Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="316.0" layoutY="196.0" prefHeight="24.0" prefWidth="325.0" />
+      <TextField fx:id="txtAddress" layoutX="316.0" layoutY="196.0" prefHeight="24.0" prefWidth="325.0" />
       <Label alignment="CENTER_RIGHT" layoutX="217.0" layoutY="198.0" prefHeight="19.0" prefWidth="76.0" text="Address" textAlignment="RIGHT">
          <font>
             <Font size="15.0" />
@@ -43,14 +44,13 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <ComboBox layoutX="363.0" layoutY="246.0" prefHeight="24.0" prefWidth="278.0" />
-      <TextField layoutX="316.0" layoutY="296.0" prefHeight="24.0" prefWidth="325.0" />
+      <ComboBox fx:id="cmbSelectedProgram" layoutX="363.0" layoutY="246.0" prefHeight="24.0" prefWidth="278.0" />
       <Label alignment="CENTER_RIGHT" layoutX="217.0" layoutY="298.0" prefHeight="19.0" prefWidth="76.0" text="Birthday" textAlignment="RIGHT">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="316.0" layoutY="346.0" prefHeight="24.0" prefWidth="325.0" />
+      <TextField fx:id="txtNic" layoutX="316.0" layoutY="346.0" prefHeight="24.0" prefWidth="325.0" />
       <Label alignment="CENTER_RIGHT" layoutX="217.0" layoutY="348.0" prefHeight="19.0" prefWidth="76.0" text="NIC" textAlignment="RIGHT">
          <font>
             <Font size="15.0" />
@@ -61,9 +61,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="358.0" layoutY="400.0" text="Done" />
-      <JFXCheckBox layoutX="468.0" layoutY="400.0" text="Not Paid" />
-      <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="486.0" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #27ae60;" text="PROCEED" textFill="WHITE">
+      <JFXCheckBox fx:id="tickDone" layoutX="358.0" layoutY="400.0" text="Done" />
+      <JFXCheckBox fx:id="tickNotPaid" layoutX="468.0" layoutY="400.0" text="Not Paid" />
+      <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="486.0" onMouseClicked="#proceedMouseClicked" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #27ae60;" text="PROCEED" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -73,5 +73,6 @@
             <Font size="17.0" />
          </font>
       </JFXButton>
+      <DatePicker fx:id="pickerBirthday" layoutX="318.0" layoutY="296.0" prefHeight="24.0" prefWidth="325.0" />
    </children>
 </AnchorPane>

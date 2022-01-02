@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,8 +16,19 @@ public class Programs {
     private int Duration;
     private String duration_type;
     private BigDecimal programFee;
-    @ManyToMany(mappedBy = "programList")
-    private List<Student> studentList;
+    @ManyToMany(mappedBy = "programsList")
+    private List<Student> studentList = new ArrayList<>();
+
+   public Programs(){}
+
+    public Programs(String programId, String programName, int duration, String duration_type, BigDecimal programFee, List<Student> studentList) {
+        this.programId = programId;
+        this.programName = programName;
+        Duration = duration;
+        this.duration_type = duration_type;
+        this.programFee = programFee;
+        this.studentList = studentList;
+    }
 
     public Programs(String programId, String programName, int duration, String duration_type, BigDecimal programFee) {
         this.programId = programId;

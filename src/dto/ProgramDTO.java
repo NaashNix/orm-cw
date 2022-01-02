@@ -9,6 +9,11 @@ public class ProgramDTO {
     private String duration_type;
     private BigDecimal programFee;
 
+    public ProgramDTO(String programId, String programName) {
+        this.programId = programId;
+        this.programName = programName;
+    }
+
     public String getProgramId() {
         return programId;
     }

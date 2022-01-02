@@ -3,25 +3,32 @@ package entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-@Entity
+@Entity(name = "Student")
 public class Student {
     @Id
-    private
-    String studentId;
+    private String studentId;
     private String name;
-    private String dateRegistered;
+    private LocalDate dateRegistered;
     private String nic;
     private String address;
-    private Date birthday;
-    @ManyToMany
-    private
-    List<Programs> programsList = new ArrayList<>();
+    private LocalDate birthday;
 
+    public Student() {
+    }
 
+    public Student(String studentId, String name, LocalDate dateRegistered, String nic, String address, LocalDate birthday) {
+        this.studentId = studentId;
+        this.name = name;
+        this.dateRegistered = dateRegistered;
+        this.nic = nic;
+        this.address = address;
+        this.birthday = birthday;
+    }
 
     public String getStudentId() {
         return studentId;
@@ -39,11 +46,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getDateRegistered() {
+    public LocalDate getDateRegistered() {
         return dateRegistered;
     }
 
-    public void setDateRegistered(String dateRegistered) {
+    public void setDateRegistered(LocalDate dateRegistered) {
         this.dateRegistered = dateRegistered;
     }
 
@@ -63,19 +70,11 @@ public class Student {
         this.address = address;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
-    }
-
-    public List<Programs> getProgramsList() {
-        return programsList;
-    }
-
-    public void setProgramsList(List<Programs> programsList) {
-        this.programsList = programsList;
     }
 }

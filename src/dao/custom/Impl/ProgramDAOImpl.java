@@ -21,6 +21,7 @@ public class ProgramDAOImpl implements ProgramDAO {
         Transaction transaction = session.beginTransaction();
         Serializable save = session.save(programs);
         transaction.commit();
+        session.close();
         return save != null;
     }
 
@@ -30,6 +31,7 @@ public class ProgramDAOImpl implements ProgramDAO {
         Transaction transaction = session.beginTransaction();
         Programs program = session.get(Programs.class, programCode);
         transaction.commit();
+        session.close();
         return program;
     }
 
@@ -37,9 +39,20 @@ public class ProgramDAOImpl implements ProgramDAO {
     public List<Programs> getAllPrograms() {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        Query from_programs = session.createQuery("FROM Programs");
+        Query from_programs = session.createQuery("FROM programs");
         List<Programs> programsList =  from_programs.list();
         transaction.commit();
+        session.close();
         return programsList;
+    }
+
+    @Override
+    public boolean update(Programs programs) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(programs);
+        transaction.commit();
+        session.close();
+        return true;
     }
 }

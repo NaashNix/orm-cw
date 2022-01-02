@@ -2,8 +2,10 @@ package controllers;
 
 import bo.BOFactory;
 import bo.custom.ProgramBO;
+import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXCheckBox;
 import dto.ProgramDTO;
+import dto.StudentRegistration;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +18,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class AddStudentFormController {
@@ -27,8 +31,10 @@ public class AddStudentFormController {
     public TextField txtNic;
     public DatePicker pickerBirthday;
     private final ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
+    private final StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
     public JFXCheckBox tickDone;
     public JFXCheckBox tickNotPaid;
+    private List<ProgramDTO> programCodes;
 
     public void navigateToDashboard(MouseEvent mouseEvent) throws IOException {
         URL resource = getClass().getResource("../view/Dashboard.fxml");
@@ -44,7 +50,7 @@ public class AddStudentFormController {
     }
 
     private void getAllPrograms() {
-        List<ProgramDTO> programCodes = programBO.getProgramCodes();
+        programCodes = programBO.getProgramCodes();
         for (ProgramDTO program: programCodes
              ) {
             cmbSelectedProgram.getItems().addAll(program.getProgramName());
@@ -56,6 +62,13 @@ public class AddStudentFormController {
 
 
     public void proceedMouseClicked(MouseEvent mouseEvent) {
-
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+        String nic = txtNic.getText();
+        LocalDate birthday = pickerBirthday.getValue();
+        int selectedIndex = cmbSelectedProgram.getSelectionModel().getSelectedIndex();
+        ProgramDTO selectedProgram = programCodes.get(selectedIndex);
+        StudentRegistration studentRegistration = new StudentRegistration(nic,name,LocalDate.now(),nic,address,birthday,selectedProgram);
+        boolean save = studentBO.save(studentRegistration);
     }
 }

@@ -61,9 +61,9 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="358.0" layoutY="400.0" text="Done" />
-      <JFXCheckBox layoutX="468.0" layoutY="400.0" text="Not Paid" />
-      <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="486.0" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #27ae60;" text="PROCEED" textFill="WHITE">
+      <JFXCheckBox fx:id="tickDone" layoutX="358.0" layoutY="400.0" text="Done" />
+      <JFXCheckBox fx:id="tickNotPaid" layoutX="468.0" layoutY="400.0" text="Not Paid" />
+      <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="486.0" onMouseClicked="#proceedMouseClicked" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #27ae60;" text="PROCEED" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

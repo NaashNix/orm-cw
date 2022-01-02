@@ -4,6 +4,7 @@ import bo.custom.ProgramBO;
 import dao.DAOFactory;
 import dao.custom.ProgramDAO;
 import dto.ProgramDTO;
+import dto.StudentRegistration;
 import entity.Programs;
 
 import java.util.ArrayList;
@@ -28,9 +29,11 @@ public class ProgramBOImpl implements ProgramBO {
     public ArrayList<ProgramDTO> getProgramCodes() {
         ArrayList<ProgramDTO> codes = new ArrayList<>();
         List<Programs> allPrograms = programDAO.getAllPrograms();
+        // Change program entity to programDTO
         for (Programs program : allPrograms ) {
             codes.add(new ProgramDTO(program.getProgramId(),program.getProgramName()));
         }
         return codes;
     }
+
 }

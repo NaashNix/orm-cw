@@ -1,6 +1,7 @@
 package dao;
 
 import dao.custom.Impl.ProgramDAOImpl;
+import dao.custom.Impl.StudentDAOImpl;
 
 public class DAOFactory implements SuperDAO{
     private static DAOFactory daoFactory;
@@ -18,6 +19,8 @@ public class DAOFactory implements SuperDAO{
         switch (daoTypes) {
             case PROGRAM:
                 return new ProgramDAOImpl();
+            case STUDENT:
+                return new StudentDAOImpl();
             default:
                 return null;
 

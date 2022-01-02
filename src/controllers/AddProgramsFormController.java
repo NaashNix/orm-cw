@@ -48,7 +48,7 @@ public class AddProgramsFormController {
     public void proceedButtonClicked(MouseEvent mouseEvent) {
         String programCode = txtPCode.getText();
         String pName = txtPName.getText();
-        String durationType = String.valueOf(cmbMorY.getSelectionModel());
+        String durationType = cmbMorY.getValue();
         int duration = Integer.parseInt(txtDuration.getText());
         BigDecimal pFee = BigDecimal.valueOf(Long.parseLong(txtPFee.getText()));
         Programs programs = new Programs(programCode,pName,duration,durationType,pFee);
@@ -58,8 +58,7 @@ public class AddProgramsFormController {
 
 
     public void programCodeValidator(KeyEvent keyEvent) {
-        /*if (programBO.checkAvailability(txtPCode.getText())){
-            codeUsedGrp.setVisible(true);
-        }*/
+
+
     }
 }

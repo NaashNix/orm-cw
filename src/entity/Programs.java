@@ -1,9 +1,6 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +13,8 @@ public class Programs {
     private int Duration;
     private String duration_type;
     private BigDecimal programFee;
+    @OneToMany(mappedBy = "programs", fetch = FetchType.EAGER)
+    private List<RegistrationEntity> registrations = new ArrayList<>();
 
     public Programs(){}
 
@@ -65,5 +64,13 @@ public class Programs {
 
     public void setProgramFee(BigDecimal programFee) {
         this.programFee = programFee;
+    }
+
+    public List<RegistrationEntity> getRegistrations() {
+        return registrations;
+    }
+
+    public void setRegistrations(List<RegistrationEntity> registrations) {
+        this.registrations = registrations;
     }
 }

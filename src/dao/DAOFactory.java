@@ -1,6 +1,7 @@
 package dao;
 
 import dao.custom.Impl.ProgramDAOImpl;
+import dao.custom.Impl.RegistrationDAOImpl;
 import dao.custom.Impl.StudentDAOImpl;
 
 public class DAOFactory implements SuperDAO{
@@ -21,6 +22,8 @@ public class DAOFactory implements SuperDAO{
                 return new ProgramDAOImpl();
             case STUDENT:
                 return new StudentDAOImpl();
+            case REGISTRATION:
+                return new RegistrationDAOImpl();
             default:
                 return null;
 
@@ -28,6 +31,6 @@ public class DAOFactory implements SuperDAO{
     }
 
     public enum daoTypes{
-        PROGRAM,STUDENT
+        PROGRAM,STUDENT,REGISTRATION
     }
 }

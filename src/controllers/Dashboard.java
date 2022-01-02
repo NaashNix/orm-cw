@@ -21,9 +21,6 @@ import java.time.format.DateTimeFormatter;
 public class Dashboard {
     public Label lblTime;
     public AnchorPane dashboardContext;
-    public Rectangle coverRectangle;
-    public AnchorPane searchStudentContext;
-
 
     public void initialize(){
         liveTime();
@@ -49,14 +46,22 @@ public class Dashboard {
     }
 
 
-    public void openSearchStudent(MouseEvent mouseEvent) {
-        coverRectangle.setVisible(true);
-        searchStudentContext.setVisible(true);
+    public void openSearchStudent(MouseEvent mouseEvent) throws IOException {
+        URL resource = getClass().getResource("../view/ViewStudentDetails.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(load));
+        window.show();
+        window.centerOnScreen();
     }
 
-    public void searchStudentCancelButton(MouseEvent mouseEvent) {
-        coverRectangle.setVisible(false);
-        searchStudentContext.setVisible(false);
+    public void searchStudentCancelButton(MouseEvent mouseEvent) throws IOException {
+        URL resource = getClass().getResource("../view/Dashboard.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Stage window = (Stage) dashboardContext.getScene().getWindow();
+        window.setScene(new Scene(load));
+        window.show();
+        window.centerOnScreen();
     }
 
     public void navigateToAddPrograms(MouseEvent mouseEvent) throws IOException {

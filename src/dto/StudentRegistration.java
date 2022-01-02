@@ -8,33 +8,29 @@ import java.util.Date;
 public class StudentRegistration {
     private String studentId;
     private String name;
-    private LocalDate dateRegistered;
     private String nic;
     private String address;
     private LocalDate birthday;
-    private ProgramDTO programDTO;
+
+    public StudentRegistration(){}
+
+    public StudentRegistration(String studentId, String name, String nic, String address, LocalDate birthday) {
+        this.studentId = studentId;
+        this.name = name;
+        this.nic = nic;
+        this.address = address;
+        this.birthday = birthday;
+    }
 
     @Override
     public String toString() {
         return "StudentRegistration{" +
                 "studentId='" + studentId + '\'' +
                 ", name='" + name + '\'' +
-                ", dateRegistered=" + dateRegistered +
                 ", nic='" + nic + '\'' +
                 ", address='" + address + '\'' +
                 ", birthday=" + birthday +
-                ", programDTO=" + programDTO +
                 '}';
-    }
-
-    public StudentRegistration(String studentId, String name, LocalDate dateRegistered, String nic, String address, LocalDate birthday, ProgramDTO programDTO) {
-        this.studentId = studentId;
-        this.name = name;
-        this.dateRegistered = dateRegistered;
-        this.nic = nic;
-        this.address = address;
-        this.birthday = birthday;
-        this.programDTO = programDTO;
     }
 
     public String getStudentId() {
@@ -51,14 +47,6 @@ public class StudentRegistration {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public LocalDate getDateRegistered() {
-        return dateRegistered;
-    }
-
-    public void setDateRegistered(LocalDate dateRegistered) {
-        this.dateRegistered = dateRegistered;
     }
 
     public String getNic() {
@@ -83,13 +71,5 @@ public class StudentRegistration {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
-    }
-
-    public ProgramDTO getProgramDTO() {
-        return programDTO;
-    }
-
-    public void setProgramDTO(ProgramDTO programDTO) {
-        this.programDTO = programDTO;
     }
 }

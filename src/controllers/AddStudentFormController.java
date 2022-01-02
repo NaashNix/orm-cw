@@ -5,6 +5,7 @@ import bo.custom.ProgramBO;
 import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXCheckBox;
 import dto.ProgramDTO;
+import dto.RegistrationDTO;
 import dto.StudentRegistration;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -66,9 +67,14 @@ public class AddStudentFormController {
         String address = txtAddress.getText();
         String nic = txtNic.getText();
         LocalDate birthday = pickerBirthday.getValue();
+        System.out.println("Birthday : "+birthday);
         int selectedIndex = cmbSelectedProgram.getSelectionModel().getSelectedIndex();
         ProgramDTO selectedProgram = programCodes.get(selectedIndex);
-        StudentRegistration studentRegistration = new StudentRegistration(nic,name,LocalDate.now(),nic,address,birthday,selectedProgram);
-        boolean save = studentBO.save(studentRegistration);
+        StudentRegistration studentRegistration = new StudentRegistration(nic,name,nic,address,birthday);
+        RegistrationDTO registrationDTO = new RegistrationDTO
+                (nic+selectedProgram.getProgramId(),LocalDate.now(),
+                        selectedProgram,studentRegistration);
+        studentBO.save(registrationDTO);
+
     }
 }

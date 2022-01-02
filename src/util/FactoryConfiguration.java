@@ -1,6 +1,7 @@
 package util;
 
 import entity.Programs;
+import entity.RegistrationEntity;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,6 +24,7 @@ public class FactoryConfiguration {
                 //Add Annotated Classes here.
                 .addAnnotatedClass(Programs.class)
                 .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(RegistrationEntity.class)
                 .buildSessionFactory();
     }
 

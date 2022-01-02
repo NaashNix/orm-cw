@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -85,36 +81,5 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Rectangle fx:id="coverRectangle" fill="#808b8cb9" height="569.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="817.0" />
-      <AnchorPane fx:id="searchStudentContext" layoutX="111.0" layoutY="160.0" prefHeight="224.0" prefWidth="582.0" style="-fx-background-color: white;" visible="false">
-         <children>
-            <TextField layoutX="181.0" layoutY="54.0" prefHeight="37.0" prefWidth="237.0" />
-            <ComboBox layoutX="182.0" layoutY="120.0" prefHeight="24.0" prefWidth="237.0" promptText="Select Porgram" />
-            <ImageView layoutX="391.0" layoutY="61.0">
-               <image>
-                  <Image url="@assets/icons8-search-24.png" />
-               </image>
-            </ImageView>
-            <JFXButton layoutX="215.0" layoutY="172.0" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: #16a085;" text="VIEW" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton layoutX="320.0" layoutY="172.0" onMouseClicked="#searchStudentCancelButton" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: #7f8c8d;" text="Cancel" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="20.0" offsetX="1.0" offsetY="2.0" radius="9.5" width="20.0" />
-         </effect>
-      </AnchorPane>
    </children>
 </AnchorPane>

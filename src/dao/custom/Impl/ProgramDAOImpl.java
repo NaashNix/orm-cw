@@ -3,14 +3,11 @@ package dao.custom.Impl;
 import dao.custom.ProgramDAO;
 import entity.Programs;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramDAOImpl implements ProgramDAO {
@@ -55,4 +52,5 @@ public class ProgramDAOImpl implements ProgramDAO {
         session.close();
         return true;
     }
+
 }

@@ -6,13 +6,21 @@ import bo.custom.StudentBO;
 import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import view.tdm.ProgramTDM;
 import view.tdm.StudentDetails;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class ViewStudentDetailsController {
@@ -28,6 +36,7 @@ public class ViewStudentDetailsController {
     public TableColumn colProgramDuration;
     private final StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
     private final RegistrationBO registrationBO = (RegistrationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.REGISTRATION);
+    public AnchorPane viewStudentContext;
 
     public void initialize(){
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
@@ -68,5 +77,14 @@ public class ViewStudentDetailsController {
         ObservableList<StudentDetails> tableDataForStudentDetails = FXCollections.observableArrayList();
         tableDataForStudentDetails.addAll(studentList);
         tblStudentDetails.setItems(tableDataForStudentDetails);
+    }
+
+    public void backButton(MouseEvent mouseEvent) throws IOException {
+        URL resource = getClass().getResource("../view/Dashboard.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Stage window = (Stage) viewStudentContext.getScene().getWindow();
+        window.setScene(new Scene(load));
+        window.show();
+        window.centerOnScreen();
     }
 }

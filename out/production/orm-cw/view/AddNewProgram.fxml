@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="parentContext" prefHeight="596.0" prefWidth="817.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddNewProgramToExistingStudent">
+   <children>
+      <ImageView fitHeight="44.0" fitWidth="200.0" layoutX="24.0" layoutY="23.0">
+         <image>
+            <Image url="@assets/icon_low.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="502.0" layoutY="15.0" text="REGISTER ANOTHER">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Separator layoutX="530.0" layoutY="47.0" prefHeight="20.0" prefWidth="268.0" />
+      <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#1f93ff00" height="307.0" layoutX="136.0" layoutY="187.0" stroke="#00000054" strokeType="INSIDE" strokeWidth="2.0" width="534.0" />
+      <TextField fx:id="txtName" editable="false" layoutX="286.0" layoutY="226.0" prefHeight="24.0" prefWidth="325.0" />
+      <Label layoutX="189.0" layoutY="228.0" text="Full Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentId" editable="false" layoutX="288.0" layoutY="276.0" prefHeight="24.0" prefWidth="325.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="164.0" layoutY="278.0" prefHeight="19.0" prefWidth="101.0" text="Student ID" textAlignment="RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="175.0" layoutY="328.0" prefHeight="19.0" prefWidth="138.0" text="Add New Program" textAlignment="RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbPrograms" layoutX="335.0" layoutY="326.0" prefHeight="24.0" prefWidth="278.0" promptText="Select Program" />
+      <JFXButton layoutX="480.0" layoutY="417.0" onMouseClicked="#navigateToDashboard" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #16a085;" text="PROCEED" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="searchText" layoutX="186.0" layoutY="116.0" prefHeight="24.0" prefWidth="325.0" promptText="Enter Student ID" />
+      <Label layoutX="57.0" layoutY="118.0" text="Search Student">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="521.0" layoutY="112.0" onMouseClicked="#searchOnClicked" prefHeight="31.0" prefWidth="97.0" style="-fx-background-color: #2980b9;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtProgramCode" editable="false" layoutX="286.0" layoutY="375.0" prefHeight="24.0" prefWidth="325.0" />
+      <Label layoutX="169.0" layoutY="377.0" text="Program Code">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDuration" editable="false" layoutX="288.0" layoutY="425.0" prefHeight="24.0" prefWidth="162.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="173.0" layoutY="427.0" prefHeight="19.0" prefWidth="101.0" text="Duration" textAlignment="RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Group fx:id="notFoundError" layoutX="656.0" layoutY="206.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e63946" height="24.0" layoutX="-468.0" layoutY="-55.0" stroke="#540b0e" strokeType="INSIDE" width="194.0" />
+            <Text fill="WHITE" layoutX="-457.0" layoutY="-37.9951171875" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT NOT FOUND" wrappingWidth="178.5390625">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <JFXButton layoutX="602.0" layoutY="511.0" onMouseClicked="#navigateToDashboard" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #7f8c8d;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

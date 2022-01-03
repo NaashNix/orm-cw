@@ -12,4 +12,6 @@ public interface StudentBO extends SuperBO {
     boolean save(RegistrationDTO registrationDTO);
 
     List<StudentDetails> getStudentList();
+
+    StudentRegistration findAndGet(String studentId);
 }

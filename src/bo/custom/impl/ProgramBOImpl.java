@@ -36,4 +36,14 @@ public class ProgramBOImpl implements ProgramBO {
         return codes;
     }
 
+    public ArrayList<ProgramDTO> getProgramDTO(){
+        ArrayList<ProgramDTO> programDTOS = new ArrayList<>();
+        List<Programs> allPrograms = programDAO.getAllPrograms();
+        // Change program entity to programDTO
+        for (Programs program : allPrograms ) {
+            programDTOS.add(new ProgramDTO(program.getProgramId(),program.getProgramName(),program.getDuration(),program.getDuration_type()));
+        }
+        return programDTOS;
+    }
+
 }

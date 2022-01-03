@@ -77,4 +77,13 @@ public class AddStudentFormController {
         studentBO.save(registrationDTO);
 
     }
+
+    public void navigateToAddExisting(MouseEvent mouseEvent) throws IOException {
+        URL resource = getClass().getResource("../view/AddNewProgram.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Stage window = (Stage) addStudentFormContext.getScene().getWindow();
+        window.setScene(new Scene(load));
+        window.show();
+        window.centerOnScreen();
+    }
 }

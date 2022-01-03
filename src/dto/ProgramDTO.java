@@ -14,6 +14,13 @@ public class ProgramDTO {
         this.programName = programName;
     }
 
+    public ProgramDTO(String programId, String programName, int duration, String duration_type) {
+        this.programId = programId;
+        this.programName = programName;
+        this.Duration = duration;
+        this.duration_type = duration_type;
+    }
+
     public String getProgramId() {
         return programId;
     }

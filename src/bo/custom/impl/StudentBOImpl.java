@@ -8,6 +8,7 @@ import dao.custom.ProgramDAO;
 import dao.custom.RegistrationDAO;
 import dao.custom.StudentDAO;
 import dto.RegistrationDTO;
+import dto.StudentRegistration;
 import entity.Student;
 import view.tdm.StudentDetails;
 
@@ -43,6 +44,19 @@ public class StudentBOImpl implements StudentBO {
             studentDetails.add(new StudentDetails(s.getStudentId(),s.getName(),s.getAddress(),s.getNic()));
         }
         return studentDetails;
+    }
+
+    @Override
+    public StudentRegistration findAndGet(String studentId) {
+        Student student = studentDAO.getStudent(studentId);
+        if (student == null){
+            return null;
+        }else{
+            StudentRegistration s = new StudentRegistration(studentId,student.getName(),student.getNic(),
+                    student.getAddress(),student.getBirthday());
+            return s;
+        }
+
     }
 
 }

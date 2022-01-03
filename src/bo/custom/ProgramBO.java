@@ -15,5 +15,5 @@ public interface ProgramBO extends SuperBO {
 
     public List<ProgramDTO> getProgramCodes();
 
-
+    public ArrayList<ProgramDTO> getProgramDTO();
 }

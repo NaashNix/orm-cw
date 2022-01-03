@@ -9,5 +9,5 @@ import java.util.List;
 public interface RegistrationDAO extends SuperDAO {
     boolean recordRegistration(RegistrationEntity registrationEntity);
 
-    List<RegistrationDTO> getRegistrationForStudent(String studentId);
+    List<RegistrationEntity> getRegistrationForStudent(String studentId);
 }

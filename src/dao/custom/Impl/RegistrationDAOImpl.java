@@ -8,8 +8,10 @@ import dto.RegistrationDTO;
 import entity.RegistrationEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationDAOImpl implements RegistrationDAO {
@@ -25,8 +27,17 @@ public class RegistrationDAOImpl implements RegistrationDAO {
     }
 
     @Override
-    public List<RegistrationDTO> getRegistrationForStudent(String studentId) {
-        return null;
+    public List<RegistrationEntity> getRegistrationForStudent(String studentId) {
+//        List<RegistrationEntity> registrationDTOS = new ArrayList<>();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("FROM student_program WHERE student.studentId=:studentId");
+        query.setParameter("studentId",studentId);
+        List<RegistrationEntity> RegistrationList = query.list();
+        transaction.commit();
+        session.close();
+
+        return RegistrationList;
     }
 
 }

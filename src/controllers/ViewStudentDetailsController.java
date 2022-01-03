@@ -45,14 +45,20 @@ public class ViewStudentDetailsController {
 
         tblStudentDetails.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) -> {
             StudentDetails selectedItem = tblStudentDetails.getSelectionModel().getSelectedItem();
+            System.out.println("SelectedItem : "+selectedItem.getStudentId());
             List<ProgramTDM> programDetails = registrationBO.getProgramDetails(selectedItem.getStudentId());
+            System.out.println("table Listner : "+programDetails.get(0).getProgramName());
+            System.out.println("Event Fired with value : "+newValue);
             setDataToProgramDetailsTable(programDetails);
         });
     }
 
     private void setDataToProgramDetailsTable(List<ProgramTDM> programDetails) {
         ObservableList<ProgramTDM> programTDMS = FXCollections.observableArrayList();
+        programTDMS.clear();
         programTDMS.addAll(programDetails);
+        System.out.println("setDataToProgramDetailsTable : "+programTDMS.get(0).getProgramName());
+        tblProgramDetails.refresh();
         tblProgramDetails.setItems(programTDMS);
     }
 

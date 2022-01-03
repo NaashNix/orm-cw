@@ -45,7 +45,6 @@ public class RegistrationBOImpl implements RegistrationBO {
 
     @Override
     public List<ProgramTDM> getProgramDetails(String studentId) {
-        System.out.println("Student Id : "+studentId);
         List<RegistrationEntity> registrationForStudent = registrationDAO.getRegistrationForStudent(studentId);
         List<ProgramTDM> programTDMList = new ArrayList<>();
         if (registrationForStudent == null){

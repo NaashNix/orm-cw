@@ -7,10 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,8 +29,8 @@ public class AddProgramsFormController {
     private final ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
 
 
-    public void initialize(){
-        cmbMorY.getItems().setAll("Months","Years");
+    public void initialize() {
+        cmbMorY.getItems().setAll("Months", "Years");
         cmbMorY.getSelectionModel().clearAndSelect(0);
 
     }
@@ -51,14 +50,14 @@ public class AddProgramsFormController {
         String durationType = cmbMorY.getValue();
         int duration = Integer.parseInt(txtDuration.getText());
         BigDecimal pFee = BigDecimal.valueOf(Long.parseLong(txtPFee.getText()));
-        Programs programs = new Programs(programCode,pName,duration,durationType,pFee);
+        Programs programs = new Programs(programCode, pName, duration, durationType, pFee);
         boolean save = programBO.save(programs);
-        System.out.println(save);
-    }
-
-
-    public void programCodeValidator(KeyEvent keyEvent) {
-
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Saved");
+        alert.show();
+        try {
+            navigateToDashboard(mouseEvent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

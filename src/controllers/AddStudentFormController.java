@@ -10,6 +10,7 @@ import dto.StudentRegistration;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -75,7 +76,13 @@ public class AddStudentFormController {
                 (nic+selectedProgram.getProgramId(),LocalDate.now(),
                         selectedProgram,studentRegistration);
         studentBO.save(registrationDTO);
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Saved");
+        alert.show();
+        try {
+            navigateToDashboard(mouseEvent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void navigateToAddExisting(MouseEvent mouseEvent) throws IOException {

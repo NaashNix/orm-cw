@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -26,7 +25,7 @@
          </font>
       </Label>
       <Separator layoutX="598.0" layoutY="47.0" prefHeight="20.0" prefWidth="200.0" />
-      <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#1f93ff00" height="328.0" layoutX="133.0" layoutY="123.0" stroke="#00000054" strokeType="INSIDE" strokeWidth="2.0" width="582.0" />
+      <Rectangle arcHeight="12.0" arcWidth="12.0" fill="#1f93ff00" height="280.0" layoutX="133.0" layoutY="123.0" stroke="#00000054" strokeType="INSIDE" strokeWidth="2.0" width="582.0" />
       <TextField fx:id="txtName" layoutX="316.0" layoutY="146.0" prefHeight="24.0" prefWidth="325.0" />
       <Label layoutX="217.0" layoutY="148.0" text="Full Name">
          <font>
@@ -56,13 +55,6 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="181.0" layoutY="398.0" prefHeight="19.0" prefWidth="152.0" text="Payment Status" textAlignment="RIGHT">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <JFXCheckBox fx:id="tickDone" layoutX="358.0" layoutY="400.0" text="Done" />
-      <JFXCheckBox fx:id="tickNotPaid" layoutX="468.0" layoutY="400.0" text="Not Paid" />
       <JFXButton buttonType="RAISED" layoutX="434.0" layoutY="486.0" onMouseClicked="#proceedMouseClicked" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #27ae60;" text="PROCEED" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />

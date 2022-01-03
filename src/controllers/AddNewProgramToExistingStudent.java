@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -84,7 +85,13 @@ public class AddNewProgramToExistingStudent {
                 txtProgramCode.getText(),
                 txtStudentId.getText());
         boolean b = registrationBO.saveNewRegistration(registration);
-        System.out.println(b);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Saved");
+        alert.show();
+        try {
+            navigateToDashboard(mouseEvent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

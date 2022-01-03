@@ -6,7 +6,7 @@ import dao.DAOFactory;
 import dao.custom.ProgramDAO;
 import dao.custom.RegistrationDAO;
 import dao.custom.StudentDAO;
-import dto.ProgramDTO;
+import dto.ANReWExStnd;
 import dto.RegistrationDTO;
 import entity.Programs;
 import entity.RegistrationEntity;
@@ -61,5 +61,21 @@ public class RegistrationBOImpl implements RegistrationBO {
             return programTDMList;
         }
 
+    }
+
+    @Override
+    public boolean saveNewRegistration(ANReWExStnd record) {
+        Programs program = programDAO.getProgram(record.getProgramCode());
+        Student student = studentDAO.getStudent(record.getStudentId());
+        RegistrationEntity registrationEntity = new RegistrationEntity();
+        registrationEntity.setRegistrationId(record.getRegistrationId());
+        registrationEntity.setRegistrationDate(record.getRegistrationDate());
+        student.getRegistration().add(registrationEntity);
+        program.getRegistrations().add(registrationEntity);
+        registrationEntity.setStudent(student);
+        registrationEntity.setPrograms(program);
+        studentDAO.update(student);
+        programDAO.update(program);
+        return registrationDAO.recordNewRegistrationWithExistingStudent(registrationEntity);
     }
 }

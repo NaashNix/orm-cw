@@ -45,7 +45,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cmbPrograms" layoutX="335.0" layoutY="326.0" prefHeight="24.0" prefWidth="278.0" promptText="Select Program" />
-      <JFXButton layoutX="480.0" layoutY="417.0" onMouseClicked="#navigateToDashboard" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #16a085;" text="PROCEED" textFill="WHITE">
+      <JFXButton layoutX="480.0" layoutY="417.0" onMouseClicked="#proceedOnClick" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #16a085;" text="PROCEED" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

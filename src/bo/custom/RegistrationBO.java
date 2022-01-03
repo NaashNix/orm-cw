@@ -1,6 +1,7 @@
 package bo.custom;
 
 import bo.SuperBO;
+import dto.ANReWExStnd;
 import dto.RegistrationDTO;
 import view.tdm.ProgramTDM;
 
@@ -10,4 +11,6 @@ public interface RegistrationBO extends SuperBO {
     boolean save(RegistrationDTO registrationDTO);
 
     List<ProgramTDM> getProgramDetails(String studentId);
+
+    boolean saveNewRegistration(ANReWExStnd record);
 }

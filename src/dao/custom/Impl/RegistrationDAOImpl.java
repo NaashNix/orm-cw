@@ -40,4 +40,14 @@ public class RegistrationDAOImpl implements RegistrationDAO {
         return RegistrationList;
     }
 
+    @Override
+    public boolean recordNewRegistrationWithExistingStudent(RegistrationEntity registrationEntity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(registrationEntity);
+        transaction.commit();
+        session.close();
+        return false;
+    }
+
 }

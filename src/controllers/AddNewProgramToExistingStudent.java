@@ -2,7 +2,9 @@ package controllers;
 
 import bo.BOFactory;
 import bo.custom.ProgramBO;
+import bo.custom.RegistrationBO;
 import bo.custom.StudentBO;
+import dto.ANReWExStnd;
 import dto.ProgramDTO;
 import dto.StudentRegistration;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 
 public class AddNewProgramToExistingStudent {
@@ -30,6 +33,7 @@ public class AddNewProgramToExistingStudent {
     public TextField searchText;
     private final ProgramBO programBO = (ProgramBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.PROGRAM);
     private final StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
+    private final RegistrationBO registrationBO = (RegistrationBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.REGISTRATION);
     List<ProgramDTO> programCodes;
 
     public void initialize(){
@@ -72,5 +76,15 @@ public class AddNewProgramToExistingStudent {
         txtName.setText(studentDetailsPacket.getName());
         txtStudentId.setText(studentDetailsPacket.getStudentId());
     }
-    
+
+
+    public void proceedOnClick(MouseEvent mouseEvent) {
+        ANReWExStnd registration = new ANReWExStnd(txtStudentId.getText()+txtProgramCode.getText(),
+                LocalDate.now(),
+                txtProgramCode.getText(),
+                txtStudentId.getText());
+        boolean b = registrationBO.saveNewRegistration(registration);
+        System.out.println(b);
+    }
+
 }

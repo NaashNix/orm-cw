@@ -10,4 +10,6 @@ public interface RegistrationDAO extends SuperDAO {
     boolean recordRegistration(RegistrationEntity registrationEntity);
 
     List<RegistrationEntity> getRegistrationForStudent(String studentId);
+
+    boolean recordNewRegistrationWithExistingStudent(RegistrationEntity registrationEntity);
 }
